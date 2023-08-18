@@ -2,6 +2,7 @@ package com.example.mislugares;
 
 public class Lugar {
 
+    private TipoLugar tipo;
     private String nombre;
     private String direccion;
     private GeoPunto posicion;
@@ -16,6 +17,7 @@ public class Lugar {
                  String direccion,
                  double longitud,
                  double latitud,
+                 TipoLugar tipo,
                  int telefono,
                  String url,
                  String comentario,
@@ -23,6 +25,7 @@ public class Lugar {
 
         fecha = System.currentTimeMillis();
         posicion = new GeoPunto(longitud, latitud);
+        this.tipo = tipo;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -103,10 +106,19 @@ public class Lugar {
         this.valoracion = valoracion;
     }
 
+    public TipoLugar getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoLugar tipo) {
+        this.tipo = tipo;
+    }
+
     @Override
     public String toString() {
         return "Lugar{" +
-                "nombre='" + nombre + '\'' +
+                "tipo=" + tipo +
+                ", nombre='" + nombre + '\'' +
                 ", direccion='" + direccion + '\'' +
                 ", posicion=" + posicion +
                 ", foto='" + foto + '\'' +
